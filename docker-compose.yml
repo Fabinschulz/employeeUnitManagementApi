@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: employeeUnitDB
     networks:
-      - employeeUnitDB-network
+      - employeeUnitDB_network
     volumes:
       - ./db/:/var/lib/postgresql/data
     healthcheck:
@@ -18,6 +18,18 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+  
+  redis:
+    image: redis:6.2.6-alpine
+    container_name: redis_container
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "6379:6379"
+    networks:
+      - employeeUnitDB_network
+    volumes:
+      - 'employeeUnitDB_redis_data:/data'
 
   api:
     container_name: api_container
@@ -30,8 +42,12 @@ services:
         condition: service_healthy
     restart: always
     networks:
-      - employeeUnitDB-network
+      - employeeUnitDB_network
 
 networks:
-  employeeUnitDB-network:
+  employeeUnitDB_network:
     driver: bridge
+
+volumes:
+  db:
+  employeeUnitDB_redis_data:

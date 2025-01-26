@@ -175,7 +175,7 @@ namespace EmployeeUnitManagementApi.src.Infra.Repositories
 
             var totalItems = await query.CountAsync();
 
-            var data = await query.Skip((page - 1) * size).Take(size).ToListAsync();
+            var data = await query.Skip(page * size).Take(size).ToListAsync();
 
             return new ListDataPagination<User>(data, page, size, totalItems);
         }
