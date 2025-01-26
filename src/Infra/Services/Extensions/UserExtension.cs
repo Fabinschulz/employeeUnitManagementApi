@@ -49,7 +49,7 @@ namespace EmployeeUnitManagementApi.src.Infra.Services.Extensions
                 return Results.Ok(user);
             }).WithTags("USER").WithSummary("Delete a user").RequireAuthorization("Admin");
 
-            app.MapGet("/v1/user", async (IMediator mediator, int page, int size, string? username, string? email, string? orderBy, StatusEnum? status, RoleEnum? role) =>
+            app.MapGet("/v1/user", async (IMediator mediator, string? username, string? email, string? orderBy, StatusEnum? status, RoleEnum? role, int page = 0, int size = 20) =>
             {
                 var getAllUserRequest = new GetAllUserCommand(page, size, username, email, orderBy, status, role);
                 var users = await mediator.Send(getAllUserRequest);

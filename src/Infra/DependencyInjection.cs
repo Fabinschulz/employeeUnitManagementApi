@@ -35,10 +35,19 @@ namespace EmployeeUnitManagementApi.src.Infra
         /// <param name="builder">The web application builder.</param>
         public static void AddDatabase(this WebApplicationBuilder builder)
         {
-            builder.Services.AddDbContext<AppDbContext>(options =>
+            string connectionString = builder.Configuration.GetValue<string>("PostgreSQLConnection", builder.Configuration.GetConnectionString("PostgreSQLConnection")!)!;
+            Console.WriteLine("Initializing Database for API: " + connectionString.Substring(0, 50));
+
+            try
             {
-                options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQLConnection"));
-            });
+                builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error connecting to database: " + e.Message);
+                throw new Exception("Error on postgresql: " + connectionString.Substring(0, 50));
+            }
+
         }
 
         /// <summary>
@@ -138,26 +147,7 @@ namespace EmployeeUnitManagementApi.src.Infra
                 options.JsonSerializerOptions.Converters.Add(new RoleEnumConverter());
             });
 
-            // Add database migration during application startup
-            using (var scope = services.BuildServiceProvider().CreateScope())
-            {
-                var serviceProvider = scope.ServiceProvider;
-                try
-                {
-                    var context = serviceProvider.GetRequiredService<AppDbContext>();
-                    var logger = serviceProvider.GetRequiredService<ILogger<AppDbContext>>();
-
-                    context.Database.Migrate();
-                    logger.LogInformation("Migração do banco de dados concluída com sucesso.");
-                }
-                catch (Exception ex)
-                {
-                    var logger = serviceProvider.GetRequiredService<ILogger<AppDbContext>>();
-                    logger.LogError(ex, "Erro durante a migração do banco de dados.");
-                    throw new Exception("Erro durante a migração do banco de dados.", ex);
-                }
-            }
-
+            services.AddHostedService<MigrationHostedService>();
         }
     }
 }
