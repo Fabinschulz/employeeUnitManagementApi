@@ -1,0 +1,1275 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EmployeeUnitManagementApi</name>
+    </assembly>
+    <members>
+        <member name="T:EmployeeUnitManagementApi.Migrations.employeeUnitDB">
+            <inheritdoc />
+        </member>
+        <member name="M:EmployeeUnitManagementApi.Migrations.employeeUnitDB.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EmployeeUnitManagementApi.Migrations.employeeUnitDB.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EmployeeUnitManagementApi.Migrations.employeeUnitDB.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.CreateUserCommand">
+            <summary>
+            Command to create a new user.
+            </summary>
+            <param name="Email">The email of the user.</param>
+            <param name="Password">The password of the user.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Command.UserCommand.CreateUserCommand.#ctor(System.String,System.String)">
+            <summary>
+            Command to create a new user.
+            </summary>
+            <param name="Email">The email of the user.</param>
+            <param name="Password">The password of the user.</param>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.CreateUserCommand.Email">
+            <summary>The email of the user.</summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.CreateUserCommand.Password">
+            <summary>The password of the user.</summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.CreateUserValidator">
+            <summary>
+            Validator for the CreateUserCommand.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Command.UserCommand.CreateUserValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.CreateUserValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.DeleteUserCommand">
+            <summary>
+            Command to delete a user by Id.
+            </summary>
+            <param name="Id">The Id of the user to be deleted.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Command.UserCommand.DeleteUserCommand.#ctor(System.Guid)">
+            <summary>
+            Command to delete a user by Id.
+            </summary>
+            <param name="Id">The Id of the user to be deleted.</param>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.DeleteUserCommand.Id">
+            <summary>The Id of the user to be deleted.</summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserCommand">
+            <summary>
+            Command to get all users with pagination and filtering options.
+            </summary>
+            <param name="Page">The page number.</param>
+            <param name="Size">The size of the page.</param>
+            <param name="Username">The username to filter by.</param>
+            <param name="Email">The email to filter by.</param>
+            <param name="OrderBy">The field to order by.</param>
+            <param name="Status">The status to filter by.</param>
+            <param name="Role">The role to filter by.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserCommand.#ctor(System.Int32,System.Int32,System.String,System.String,System.String,System.Nullable{EmployeeUnitManagementApi.src.Domain.Enums.StatusEnum},System.Nullable{EmployeeUnitManagementApi.src.Domain.Enums.RoleEnum})">
+            <summary>
+            Command to get all users with pagination and filtering options.
+            </summary>
+            <param name="Page">The page number.</param>
+            <param name="Size">The size of the page.</param>
+            <param name="Username">The username to filter by.</param>
+            <param name="Email">The email to filter by.</param>
+            <param name="OrderBy">The field to order by.</param>
+            <param name="Status">The status to filter by.</param>
+            <param name="Role">The role to filter by.</param>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserCommand.Page">
+            <summary>The page number.</summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserCommand.Size">
+            <summary>The size of the page.</summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserCommand.Username">
+            <summary>The username to filter by.</summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserCommand.Email">
+            <summary>The email to filter by.</summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserCommand.OrderBy">
+            <summary>The field to order by.</summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserCommand.Status">
+            <summary>The status to filter by.</summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserCommand.Role">
+            <summary>The role to filter by.</summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserValidator">
+            <summary>
+            Validator for GetAllUserCommand.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetUserByIdCommand">
+            <summary>
+            Command to get a user by Id.
+            </summary>
+            <param name="Id">The Id of the user.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetUserByIdCommand.#ctor(System.Guid)">
+            <summary>
+            Command to get a user by Id.
+            </summary>
+            <param name="Id">The Id of the user.</param>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetUserByIdCommand.Id">
+            <summary>The Id of the user.</summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetUserByIdValidator">
+            <summary>
+            Validator for the GetUserByIdCommand.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetUserByIdValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetUserByIdValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.LoginUserCommand">
+            <summary>
+            Command to log in a user.
+            </summary>
+            <param name="Email">The email of the user.</param>
+            <param name="Password">The password of the user.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Command.UserCommand.LoginUserCommand.#ctor(System.String,System.String)">
+            <summary>
+            Command to log in a user.
+            </summary>
+            <param name="Email">The email of the user.</param>
+            <param name="Password">The password of the user.</param>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.LoginUserCommand.Email">
+            <summary>The email of the user.</summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.LoginUserCommand.Password">
+            <summary>The password of the user.</summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.LoginUserValidator">
+            <summary>
+            Validator for the LoginUserCommand.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Command.UserCommand.LoginUserValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.LoginUserValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.UpdateUserCommand">
+            <summary>
+            Command to update a user.
+            </summary>
+            <param name="Id">The unique identifier of the user.</param>
+            <param name="Username">The username of the user.</param>
+            <param name="Email">The email address of the user.</param>
+            <param name="Role">The role of the user.</param>
+            <param name="Status">The status of the user.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Command.UserCommand.UpdateUserCommand.#ctor(System.Guid,System.String,System.String,EmployeeUnitManagementApi.src.Domain.Enums.RoleEnum,EmployeeUnitManagementApi.src.Domain.Enums.StatusEnum)">
+            <summary>
+            Command to update a user.
+            </summary>
+            <param name="Id">The unique identifier of the user.</param>
+            <param name="Username">The username of the user.</param>
+            <param name="Email">The email address of the user.</param>
+            <param name="Role">The role of the user.</param>
+            <param name="Status">The status of the user.</param>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.UpdateUserCommand.Id">
+            <summary>The unique identifier of the user.</summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.UpdateUserCommand.Username">
+            <summary>The username of the user.</summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.UpdateUserCommand.Email">
+            <summary>The email address of the user.</summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.UpdateUserCommand.Role">
+            <summary>The role of the user.</summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Command.UserCommand.UpdateUserCommand.Status">
+            <summary>The status of the user.</summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.UpdateUserValidator">
+            <summary>
+            Validator for the UpdateUserCommand.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Command.UserCommand.UpdateUserValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Command.UserCommand.UpdateUserValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Common.Behaviors.ValidationBehavior`2">
+            <summary>
+            Behavior for validating requests.
+            </summary>
+            <typeparam name="TRequest">The type of the request.</typeparam>
+            <typeparam name="TResponse">The type of the response.</typeparam>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Common.Behaviors.ValidationBehavior`2.#ctor(System.Collections.Generic.IEnumerable{FluentValidation.IValidator{`0}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Common.Behaviors.ValidationBehavior`2"/> class.
+            </summary>
+            <param name="validators">The validators to use for validating the request.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Common.Behaviors.ValidationBehavior`2.Handle(`0,MediatR.RequestHandlerDelegate{`1},System.Threading.CancellationToken)">
+            <summary>
+            Handles the request and validates it using the provided validators.
+            </summary>
+            <param name="request">The request to handle.</param>
+            <param name="next">The next delegate in the pipeline.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The response from the next delegate in the pipeline.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Common.Exceptions.BadRequestException">
+            <summary>
+            Represents errors that occur during application execution due to a bad request.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Common.Exceptions.BadRequestException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Common.Exceptions.BadRequestException"/> class with a specified error message.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Common.Exceptions.BadRequestException.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Common.Exceptions.BadRequestException"/> class with multiple error messages.
+            </summary>
+            <param name="errors">An array of error messages.</param>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Common.Exceptions.BadRequestException.Errors">
+            <summary>
+            Gets the error messages associated with the exception.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Common.Exceptions.NotFoundException">
+            <summary>
+            Exception thrown when an entity is not found.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Common.Exceptions.NotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Common.Exceptions.NotFoundException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Common.Models.ListDataPagination`1">
+            <summary>
+            Represents a paginated list of data.
+            </summary>
+            <typeparam name="T">The type of data in the list.</typeparam>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Common.Models.ListDataPagination`1.Page">
+            <summary>
+            Gets or sets the current page number.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Common.Models.ListDataPagination`1.TotalPages">
+            <summary>
+            Gets or sets the total number of pages.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Common.Models.ListDataPagination`1.TotalItems">
+            <summary>
+            Gets or sets the total number of items.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Common.Models.ListDataPagination`1.Data">
+            <summary>
+            Gets or sets the list of data items.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Common.Models.ListDataPagination`1.#ctor(System.Collections.Generic.List{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Common.Models.ListDataPagination`1"/> class.
+            </summary>
+            <param name="data">The list of data items.</param>
+            <param name="page">The current page number.</param>
+            <param name="size">The total number of pages.</param>
+            <param name="totalItems">The total number of items.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.CreateUserHandler">
+            <summary>
+            Handles the creation of a new user.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.CreateUserHandler.#ctor(AutoMapper.IMapper,EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository,FluentValidation.IValidator{EmployeeUnitManagementApi.src.Application.Command.UserCommand.CreateUserCommand})">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.CreateUserHandler"/> class.
+            </summary>
+            <param name="mapper">The mapper instance.</param>
+            <param name="userRepository">The user repository instance.</param>
+            <param name="validator">The validator instance.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.CreateUserHandler.Handle(EmployeeUnitManagementApi.src.Application.Command.UserCommand.CreateUserCommand,System.Threading.CancellationToken)">
+            <summary>
+            Handles the creation of a new user.
+            </summary>
+            <param name="request">The create user command request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the created user query.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.DeleteUserHandler">
+            <summary>
+            Handler for deleting a user.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.DeleteUserHandler.#ctor(EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.DeleteUserHandler"/> class.
+            </summary>
+            <param name="userRepository">The user repository.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.DeleteUserHandler.Handle(EmployeeUnitManagementApi.src.Application.Command.UserCommand.DeleteUserCommand,System.Threading.CancellationToken)">
+            <summary>
+            Handles the delete user command.
+            </summary>
+            <param name="request">The delete user command request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the delete user by id query.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.GetAllUserHandler">
+            <summary>
+            Handler for getting all users.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.GetAllUserHandler.#ctor(EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository,AutoMapper.IMapper,FluentValidation.IValidator{EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserCommand})">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.GetAllUserHandler"/> class.
+            </summary>
+            <param name="userRepository">The user repository.</param>
+            <param name="mapper">The mapper.</param>
+            <param name="validator">The validator.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.GetAllUserHandler.Handle(EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetAllUserCommand,System.Threading.CancellationToken)">
+            <summary>
+            Handles the request to get all users.
+            </summary>
+            <param name="request">The request command containing the parameters.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the query result.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.GetUserByIdHandler">
+            <summary>
+            Handler for getting a user by ID.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.GetUserByIdHandler.#ctor(EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository,AutoMapper.IMapper,FluentValidation.IValidator{EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetUserByIdCommand})">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.GetUserByIdHandler"/> class.
+            </summary>
+            <param name="userRepository">The user repository.</param>
+            <param name="mapper">The mapper.</param>
+            <param name="validator">The validator.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.GetUserByIdHandler.Handle(EmployeeUnitManagementApi.src.Application.Command.UserCommand.GetUserByIdCommand,System.Threading.CancellationToken)">
+            <summary>
+            Handles the request to get a user by ID.
+            </summary>
+            <param name="request">The request containing the user ID.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the user details.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.LoginUserHandler">
+            <summary>
+            Handles user login commands.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.LoginUserHandler.#ctor(AutoMapper.IMapper,EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository,FluentValidation.IValidator{EmployeeUnitManagementApi.src.Application.Command.UserCommand.LoginUserCommand})">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.LoginUserHandler"/> class.
+            </summary>
+            <param name="mapper">The mapper.</param>
+            <param name="userRepository">The user repository.</param>
+            <param name="validator">The validator.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.LoginUserHandler.Handle(EmployeeUnitManagementApi.src.Application.Command.UserCommand.LoginUserCommand,System.Threading.CancellationToken)">
+            <summary>
+            Handles the login user command.
+            </summary>
+            <param name="request">The login user command request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the login user query.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.UpdateUserHandler">
+            <summary>
+            Handles the update user command.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.UpdateUserHandler.#ctor(EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger{EmployeeUnitManagementApi.src.Application.Handler.UserHandler.UpdateUserHandler},FluentValidation.IValidator{EmployeeUnitManagementApi.src.Application.Command.UserCommand.UpdateUserCommand})">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.UpdateUserHandler"/> class.
+            </summary>
+            <param name="userRepository">The user repository.</param>
+            <param name="mapper">The mapper.</param>
+            <param name="logger">The logger.</param>
+            <param name="validator">The validator.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Handler.UserHandler.UpdateUserHandler.Handle(EmployeeUnitManagementApi.src.Application.Command.UserCommand.UpdateUserCommand,System.Threading.CancellationToken)">
+            <summary>
+            Handles the update user command.
+            </summary>
+            <param name="request">The update user command request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The updated user query.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.CreateUserMapper">
+            <summary>
+            Mapper profile for creating a user.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.CreateUserMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.CreateUserMapper"/> class.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.GetAllUserMapper">
+            <summary>
+            Mapper profile for getting all users.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.GetAllUserMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.GetAllUserMapper"/> class.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.GetUserByIdMapper">
+            <summary>
+            Mapper profile for getting a user by ID.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.GetUserByIdMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.GetUserByIdMapper"/> class.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.LoginUserMapper">
+            <summary>
+            Mapper profile for mapping User to LoginUserQuery.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.LoginUserMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.LoginUserMapper"/> class.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.UpdateUserMapper">
+            <summary>
+            Mapper profile for updating user information.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.UpdateUserMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Mapper.UserMapper.UpdateUserMapper"/> class.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Queries.CreateUserQuery">
+            <summary>
+            Represents a query to create a user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.CreateUserQuery.Id">
+            <summary>
+            Gets or sets the unique identifier for the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.CreateUserQuery.Username">
+            <summary>
+            Gets or sets the username for the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.CreateUserQuery.Email">
+            <summary>
+            Gets or sets the email for the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.CreateUserQuery.Role">
+            <summary>
+            Gets or sets the role for the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.CreateUserQuery.Status">
+            <summary>
+            Gets or sets the status for the user.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Queries.CreateUserQuery.op_Implicit(EmployeeUnitManagementApi.src.Domain.Entities.User)~EmployeeUnitManagementApi.src.Application.Queries.CreateUserQuery">
+            <summary>
+            Converts a User entity to a CreateUserQuery.
+            </summary>
+            <param name="user">The User entity to convert.</param>
+            <returns>A CreateUserQuery representing the User entity.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Queries.DeleteUserByIdQuery">
+            <summary>
+            Represents a query to delete a user by ID.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.DeleteUserByIdQuery.IsSuccess">
+            <summary>
+            Gets a value indicating whether the deletion was successful.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.DeleteUserByIdQuery.Message">
+            <summary>
+            Gets a message associated with the deletion result.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Queries.DeleteUserByIdQuery.#ctor(System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Queries.DeleteUserByIdQuery"/> class.
+            </summary>
+            <param name="isSuccess">A value indicating whether the deletion was successful.</param>
+            <param name="message">A message associated with the deletion result.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Queries.DTOs.UserDto">
+            <summary>
+            Represents a Data Transfer Object for the User entity.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.DTOs.UserDto.Username">
+            <summary>
+            Gets or sets the username of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.DTOs.UserDto.Email">
+            <summary>
+            Gets or sets the email of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.DTOs.UserDto.Role">
+            <summary>
+            Gets or sets the role of the user.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Queries.DTOs.UserDto.#ctor(EmployeeUnitManagementApi.src.Domain.Entities.User)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Queries.DTOs.UserDto"/> class.
+            </summary>
+            <param name="user">The user entity.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Queries.GetAllUserQuery">
+            <summary>
+            Represents a query to get all users with pagination.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.GetAllUserQuery.Page">
+            <summary>
+            Gets or sets the current page number.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.GetAllUserQuery.TotalPages">
+            <summary>
+            Gets or sets the total number of pages.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.GetAllUserQuery.TotalItems">
+            <summary>
+            Gets or sets the total number of items.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.GetAllUserQuery.Data">
+            <summary>
+            Gets or sets the list of user data transfer objects.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Application.Queries.GetAllUserQuery.#ctor(EmployeeUnitManagementApi.src.Application.Common.Models.ListDataPagination{EmployeeUnitManagementApi.src.Domain.Entities.User})">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Application.Queries.GetAllUserQuery"/> class.
+            </summary>
+            <param name="entity">The entity containing pagination data and user list.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Queries.GetUserByIdQuery">
+            <summary>
+            Represents a query to get a user by their ID.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.GetUserByIdQuery.Id">
+            <summary>
+            Gets the unique identifier for the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.GetUserByIdQuery.Username">
+            <summary>
+            Gets the username of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.GetUserByIdQuery.Email">
+            <summary>
+            Gets the email of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.GetUserByIdQuery.Role">
+            <summary>
+            Gets the role of the user (Admin, User).
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.GetUserByIdQuery.Status">
+            <summary>
+            Gets the status of the user (Active, Inactive).
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Queries.LoginUserQuery">
+            <summary>
+            Represents a query for logging in a user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.LoginUserQuery.Id">
+            <summary>
+            Gets the ID of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.LoginUserQuery.Username">
+            <summary>
+            Gets the username of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.LoginUserQuery.Email">
+            <summary>
+            Gets the email of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.LoginUserQuery.Token">
+            <summary>
+            Gets the token of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.LoginUserQuery.Status">
+            <summary>
+            Gets the status of the user (Active, Inactive).
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Application.Queries.UpdateUserQuery">
+            <summary>
+            Represents a query to update a user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.UpdateUserQuery.Id">
+            <summary>
+            Gets the unique identifier of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.UpdateUserQuery.Username">
+            <summary>
+            Gets the username of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.UpdateUserQuery.Email">
+            <summary>
+            Gets the email of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.UpdateUserQuery.Role">
+            <summary>
+            Gets the role of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.UpdateUserQuery.Status">
+            <summary>
+            Gets the status of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Application.Queries.UpdateUserQuery.Password">
+            <summary>
+            Gets the password of the user.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Domain.Common.BaseEntity">
+            <summary>
+            Represents the base entity with common properties.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Domain.Common.BaseEntity.Id">
+            <summary>
+            Gets or sets the unique identifier for the entity.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Domain.Common.BaseEntity.CreatedAt">
+            <summary>
+            Gets or sets the creation date and time of the entity.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Domain.Common.BaseEntity.UpdatedAt">
+            <summary>
+            Gets or sets the last updated date and time of the entity.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Domain.Common.BaseEntity.DeletedAt">
+            <summary>
+            Gets or sets the deletion date and time of the entity.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Domain.Common.BaseEntity.IsDeleted">
+            <summary>
+            Gets or sets a value indicating whether the entity is deleted.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Domain.Common.BaseEntity.Status">
+            <summary>
+            Gets or sets the status of the entity.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Common.BaseEntity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Domain.Common.BaseEntity"/> class.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Domain.Entities.User">
+            <summary>
+            Represents a user entity.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Domain.Entities.User.Username">
+            <summary>
+            Gets or sets the username of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Domain.Entities.User.Email">
+            <summary>
+            Gets or sets the email of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Domain.Entities.User.Password">
+            <summary>
+            Gets or sets the password of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Domain.Entities.User.Role">
+            <summary>
+            Gets or sets the role of the user.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Domain.Entities.User.Token">
+            <summary>
+            Gets or sets the token of the user.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Entities.User.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Domain.Entities.User"/> class with the specified email and password.
+            </summary>
+            <param name="email">The email of the user.</param>
+            <param name="password">The password of the user.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Domain.Enums.RoleEnum">
+            <summary>
+            Enum representing the roles in the system.
+            </summary>
+        </member>
+        <member name="F:EmployeeUnitManagementApi.src.Domain.Enums.RoleEnum.Admin">
+            <summary>
+            Usuário com permissões administrativas
+            </summary>
+        </member>
+        <member name="F:EmployeeUnitManagementApi.src.Domain.Enums.RoleEnum.User">
+            <summary>
+            Usuário com permissões básicas
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Domain.Enums.RoleEnumConverter">
+            <summary>
+            Converter for RoleEnum to handle JSON serialization and deserialization.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Enums.RoleEnumConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Reads and converts the JSON to a RoleEnum.
+            </summary>
+            <param name="reader">The reader.</param>
+            <param name="typeToConvert">The type to convert.</param>
+            <param name="options">The serializer options.</param>
+            <returns>The converted RoleEnum.</returns>
+            <exception cref="T:System.Text.Json.JsonException">Thrown when the JSON cannot be converted to RoleEnum.</exception>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Enums.RoleEnumConverter.Write(System.Text.Json.Utf8JsonWriter,EmployeeUnitManagementApi.src.Domain.Enums.RoleEnum,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Writes and converts the RoleEnum to JSON.
+            </summary>
+            <param name="writer">The writer.</param>
+            <param name="value">The RoleEnum value to convert.</param>
+            <param name="options">The serializer options.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Domain.Enums.StatusEnum">
+            <summary>
+            Represents the status of a user.
+            </summary>
+        </member>
+        <member name="F:EmployeeUnitManagementApi.src.Domain.Enums.StatusEnum.Ativo">
+            <summary>
+            Represents an active user.
+            </summary>
+        </member>
+        <member name="F:EmployeeUnitManagementApi.src.Domain.Enums.StatusEnum.Inativo">
+            <summary>
+            Represents an inactive user.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Domain.Enums.StatusEnumConverter">
+            <summary>
+            Converts a StatusEnum to and from JSON.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Enums.StatusEnumConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Reads and converts the JSON to a StatusEnum.
+            </summary>
+            <param name="reader">The reader.</param>
+            <param name="typeToConvert">The type to convert.</param>
+            <param name="options">The serializer options.</param>
+            <returns>The converted StatusEnum.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Enums.StatusEnumConverter.Write(System.Text.Json.Utf8JsonWriter,EmployeeUnitManagementApi.src.Domain.Enums.StatusEnum,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Writes and converts the StatusEnum to JSON.
+            </summary>
+            <param name="writer">The writer.</param>
+            <param name="value">The StatusEnum value to convert.</param>
+            <param name="options">The serializer options.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Domain.Interfaces.IApplicationDbContext">
+            <summary>
+            Represents the application database context interface.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Domain.Interfaces.IApplicationDbContext.Users">
+            <summary>
+            Gets the Users DbSet.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Interfaces.IApplicationDbContext.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Saves all changes made in this context to the database.
+            </summary>
+            <param name="cancellationToken">A cancellation token to observe while waiting for the task to complete.</param>
+            <returns>A task that represents the asynchronous save operation. The task result contains the number of state entries written to the database.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Domain.Interfaces.IBaseRepository`1">
+            <summary>
+            Interface for base repository operations.
+            </summary>
+            <typeparam name="T">The type of the entity.</typeparam>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Interfaces.IBaseRepository`1.GetAll">
+            <summary>
+            Gets all entities.
+            </summary>
+            <returns>A list of all entities.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Interfaces.IBaseRepository`1.GetById(System.Guid)">
+            <summary>
+            Gets an entity by its identifier.
+            </summary>
+            <param name="id">The identifier of the entity.</param>
+            <returns>The entity with the specified identifier.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Interfaces.IBaseRepository`1.Create(`0)">
+            <summary>
+            Creates a new entity.
+            </summary>
+            <param name="entity">The entity to create.</param>
+            <returns>The created entity.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Interfaces.IBaseRepository`1.Update(`0)">
+            <summary>
+            Updates an existing entity.
+            </summary>
+            <param name="entity">The entity to update.</param>
+            <returns>The updated entity.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Interfaces.IBaseRepository`1.Delete(System.Guid)">
+            <summary>
+            Deletes an entity by its identifier.
+            </summary>
+            <param name="id">The identifier of the entity to delete.</param>
+            <returns>A boolean indicating whether the deletion was successful.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository">
+            <summary>
+            Interface for user repository operations.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository.GetAll(System.Int32,System.Int32,System.String,System.String,System.String,System.Nullable{EmployeeUnitManagementApi.src.Domain.Enums.StatusEnum},System.Nullable{EmployeeUnitManagementApi.src.Domain.Enums.RoleEnum})">
+            <summary>
+            Retrieves a paginated list of users based on the provided filters.
+            </summary>
+            <param name="Page">The page number to retrieve.</param>
+            <param name="Size">The number of items per page.</param>
+            <param name="Username">The username to filter by.</param>
+            <param name="Email">The email to filter by.</param>
+            <param name="OrderBy">The field to order by.</param>
+            <param name="status">The status to filter by.</param>
+            <param name="role">The role to filter by.</param>
+            <returns>A paginated list of users.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository.GetAuthenticatedUser(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            Retrieves the authenticated user based on the provided claims principal.
+            </summary>
+            <param name="user">The claims principal representing the authenticated user.</param>
+            <returns>The authenticated user.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository.Register(EmployeeUnitManagementApi.src.Domain.Entities.User)">
+            <summary>
+            Registers a new user.
+            </summary>
+            <param name="user">The user to register.</param>
+            <returns>The registered user.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository.Login(System.String,System.String)">
+            <summary>
+            Logs in a user with the provided email and password.
+            </summary>
+            <param name="email">The email of the user.</param>
+            <param name="password">The password of the user.</param>
+            <returns>The logged-in user.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository.ChangePassword(System.String,System.String,System.String)">
+            <summary>
+            Changes the password for a user.
+            </summary>
+            <param name="email">The email of the user.</param>
+            <param name="password">The current password of the user.</param>
+            <param name="newPassword">The new password for the user.</param>
+            <returns>The user with the updated password.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Domain.Interfaces.IUserRepository.ForgotPassword(System.String)">
+            <summary>
+            Initiates the forgot password process for a user.
+            </summary>
+            <param name="email">The email of the user.</param>
+            <returns>The user for whom the password reset was initiated.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.DependencyInjection">
+            <summary>
+            Provides extension methods for adding services to the dependency injection container.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.DependencyInjection.AddUserContext(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Adds the user context to the service collection.
+            </summary>
+            <param name="builder">The web application builder.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.DependencyInjection.AddDatabase(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Adds the database context to the service collection.
+            </summary>
+            <param name="builder">The web application builder.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.DependencyInjection.AddAuthJwt(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Adds JWT authentication to the service collection.
+            </summary>
+            <param name="builder">The web application builder.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.DependencyInjection.AddSwaggerDoc(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Adds Swagger documentation to the service collection.
+            </summary>
+            <param name="builder">The web application builder.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.DependencyInjection.AddAuthPolicy(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Adds authorization policies to the service collection.
+            </summary>
+            <param name="builder">The web application builder.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.DependencyInjection.IdentityData">
+            <summary>
+            Contains constants for identity policies.
+            </summary>
+        </member>
+        <member name="F:EmployeeUnitManagementApi.src.Infra.DependencyInjection.IdentityData.UserPolicy">
+            <summary>
+            Policy for regular users.
+            </summary>
+        </member>
+        <member name="F:EmployeeUnitManagementApi.src.Infra.DependencyInjection.IdentityData.AdminPolicy">
+            <summary>
+            Policy for administrators.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.DependencyInjection.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the services for the application.
+            </summary>
+            <param name="services">The service collection to configure.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.Persistence.AppDbContext">
+            <summary>
+            Represents the application's database context.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Persistence.AppDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{EmployeeUnitManagementApi.src.Infra.Persistence.AppDbContext})">
+            <summary>
+            Represents the application's database context.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Infra.Persistence.AppDbContext.Users">
+            <summary>
+            Gets or sets the Users.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Persistence.AppDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the schema needed for the context.
+            </summary>
+            <param name="modelBuilder">The builder being used to construct the model for this context.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Persistence.AppDbContext.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Saves all changes made in this context to the database asynchronously.
+            </summary>
+            <param name="cancellationToken">A token to observe while waiting for the task to complete.</param>
+            <returns>A task that represents the asynchronous save operation. The task result contains the number of state entries written to the database.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.Repositories.BaseRepository`1">
+            <summary>
+            Base repository class for handling database operations for entities.
+            </summary>
+            <typeparam name="T">The type of the entity.</typeparam>
+        </member>
+        <member name="F:EmployeeUnitManagementApi.src.Infra.Repositories.BaseRepository`1._context">
+            <summary>
+            The database context used for database operations.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.BaseRepository`1.#ctor(EmployeeUnitManagementApi.src.Infra.Persistence.AppDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Infra.Repositories.BaseRepository`1"/> class.
+            </summary>
+            <param name="context">The database context used for database operations.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.BaseRepository`1.GetAll">
+            <summary>
+            Retrieves all entities from the database.
+            </summary>
+            <returns>A list of all entities.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.BaseRepository`1.GetById(System.Guid)">
+            <summary>
+            Retrieves an entity by its ID.
+            </summary>
+            <param name="id">The ID of the entity to retrieve.</param>
+            <returns>The entity with the specified ID.</returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">Thrown when the entity with the specified ID is not found.</exception>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.BaseRepository`1.Create(`0)">
+            <summary>
+            Creates a new entity in the database.
+            </summary>
+            <param name="entity">The entity to create.</param>
+            <returns>The created entity.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.BaseRepository`1.Update(`0)">
+            <summary>
+            Updates an existing entity in the database.
+            </summary>
+            <param name="entity">The entity to update.</param>
+            <returns>The updated entity.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.BaseRepository`1.Delete(System.Guid)">
+            <summary>
+            Deletes an entity by its ID.
+            </summary>
+            <param name="id">The ID of the entity to delete.</param>
+            <returns>A boolean indicating whether the deletion was successful.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.BaseRepository`1.SaveChangesAsync">
+            <summary>
+            Saves all changes made in this context to the database.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.Repositories.UserRepository">
+            <summary>
+            Repository class for managing user data.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.UserRepository.#ctor(EmployeeUnitManagementApi.src.Infra.Persistence.AppDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EmployeeUnitManagementApi.src.Infra.Repositories.UserRepository"/> class.
+            </summary>
+            <param name="context">The database context.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.UserRepository.ChangePassword(System.String,System.String,System.String)">
+            <summary>
+            Changes the password for the user with the specified email and current password.
+            </summary>
+            <param name="email">The email of the user.</param>
+            <param name="password">The current password of the user.</param>
+            <param name="newPassword">The new password to set for the user.</param>
+            <returns>The user with the updated password.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.UserRepository.ForgotPassword(System.String)">
+            <summary>
+            Resets the password for the user with the specified email.
+            </summary>
+            <param name="email">The email of the user.</param>
+            <returns>The user with the reset password.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.UserRepository.GetAuthenticatedUser(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            Gets the authenticated user based on the provided claims principal.
+            </summary>
+            <param name="user">The claims principal containing the user's claims.</param>
+            <returns>The authenticated user.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.UserRepository.Login(System.String,System.String)">
+            <summary>
+            Logs in a user with the specified email and password.
+            </summary>
+            <param name="email">The email of the user.</param>
+            <param name="password">The password of the user.</param>
+            <returns>The logged-in user with a generated token.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.UserRepository.Register(EmployeeUnitManagementApi.src.Domain.Entities.User)">
+            <summary>
+            Registers a new user.
+            </summary>
+            <param name="user">The user to register.</param>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Repositories.UserRepository.GetAll(System.Int32,System.Int32,System.String,System.String,System.String,System.Nullable{EmployeeUnitManagementApi.src.Domain.Enums.StatusEnum},System.Nullable{EmployeeUnitManagementApi.src.Domain.Enums.RoleEnum})">
+            <summary>
+            Gets a paginated list of users based on the specified filters and sorting options.
+            </summary>
+            <param name="page">The page number to retrieve.</param>
+            <param name="size">The number of items per page.</param>
+            <param name="username">The username to filter by.</param>
+            <param name="email">The email to filter by.</param>
+            <param name="orderBy">The field to order by.</param>
+            <param name="status">The status to filter by.</param>
+            <param name="role">The role to filter by.</param>
+            <returns>A paginated list of users.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.Services.Extensions.CorsPolicyExtension">
+            <summary>
+            Provides extension methods for configuring CORS policies.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Services.Extensions.CorsPolicyExtension.ConfigureCorsPolicy(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the CORS policy to allow any origin, method, and header.
+            </summary>
+            <param name="services">The IServiceCollection to add the CORS policy to.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.Services.Extensions.ErrorHandlerExtension">
+            <summary>
+            Provides extension methods for handling errors in the application.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Services.Extensions.ErrorHandlerExtension.UseErrorHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Configures the application to use a custom error handler.
+            </summary>
+            <param name="app">The application builder.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.Services.Extensions.RoleClaimExtention">
+            <summary>
+            Provides extension methods for role claims.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Services.Extensions.RoleClaimExtention.GetClaims(EmployeeUnitManagementApi.src.Domain.Entities.User)">
+            <summary>
+            Gets the claims for the specified user.
+            </summary>
+            <param name="user">The user for whom to get the claims.</param>
+            <returns>A collection of claims for the user.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.Services.Extensions.UserExtension">
+            <summary>
+            Provides extension methods for user-related operations.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Services.Extensions.UserExtension.MapUserEndpoints(Microsoft.AspNetCore.Builder.WebApplication)">
+            <summary>
+            Maps the user endpoints to the web application.
+            </summary>
+            <param name="app">The web application.</param>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.Services.PasswordService.PasswordService">
+            <summary>
+            Provides methods for hashing and verifying passwords.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Services.PasswordService.PasswordService.HashPassword(System.String)">
+            <summary>
+            Creates a hash from the provided password.
+            </summary>
+            <param name="password">The password to hash.</param>
+            <returns>The hashed password as a base64 string.</returns>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Services.PasswordService.PasswordService.VerifyPasswordHash(System.String,System.String)">
+            <summary>
+            Verifies if the provided password matches the stored password hash.
+            </summary>
+            <param name="savedPasswordHash">The stored password hash.</param>
+            <param name="password">The password to verify.</param>
+            <returns>True if the password matches the hash; otherwise, false.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.Services.TokenServices.JwtKeySettings">
+            <summary>
+            Provides settings for JWT key generation.
+            </summary>
+        </member>
+        <member name="P:EmployeeUnitManagementApi.src.Infra.Services.TokenServices.JwtKeySettings.JwtKey">
+            <summary>
+            Gets the JWT key.
+            </summary>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.Services.TokenServices.TokenService">
+            <summary>
+            Provides methods for generating tokens.
+            </summary>
+        </member>
+        <member name="M:EmployeeUnitManagementApi.src.Infra.Services.TokenServices.TokenService.GenerateToken(EmployeeUnitManagementApi.src.Domain.Entities.User)">
+            <summary>
+            Generates a JWT token for the specified user.
+            </summary>
+            <param name="user">The user for whom the token is generated.</param>
+            <returns>A JWT token as a string.</returns>
+        </member>
+        <member name="T:EmployeeUnitManagementApi.src.Infra.Settings.Configuration">
+            <summary>
+            Provides configuration settings for the Employee Unit Management API.
+            </summary>
+        </member>
+        <member name="F:EmployeeUnitManagementApi.src.Infra.Settings.Configuration.DefaultTotalItems">
+            <summary>
+            Gets the default total items count.
+            </summary>
+        </member>
+        <member name="F:EmployeeUnitManagementApi.src.Infra.Settings.Configuration.DefaultTotalPage">
+            <summary>
+            Gets the default total page count.
+            </summary>
+        </member>
+        <member name="F:EmployeeUnitManagementApi.src.Infra.Settings.Configuration.DefaultPage">
+            <summary>
+            Gets the default page number.
+            </summary>
+        </member>
+        <member name="F:EmployeeUnitManagementApi.src.Infra.Settings.Configuration.DefaultStatusCode">
+            <summary>
+            Gets the default status code.
+            </summary>
+        </member>
+    </members>
+</doc>

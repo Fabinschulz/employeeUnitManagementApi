@@ -1,0 +1,44 @@
+using EmployeeUnitManagementApi.src.Infra;
+using EmployeeUnitManagementApi.src.Infra.Services.Extensions;
+using Microsoft.AspNetCore.Rewrite;
+
+var builder = WebApplication.CreateBuilder(args);
+var builderServices = builder.Services;
+
+// Add services to the container.
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builderServices.AddEndpointsApiExplorer();
+builderServices.AddSwaggerGen();
+builderServices.ConfigureCorsPolicy(); // Add CORS policy
+builderServices.AddControllers();
+builder.AddUserContext();
+builder.AddDatabase();
+builder.AddSwaggerDoc();
+builder.AddAuthPolicy();
+builder.AddAuthJwt();
+builderServices.ConfigureServices();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+var options = new RewriteOptions().AddRedirect("^$", "swagger/index.html");
+app.UseRewriter(options);
+
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "User Api v1"));
+app.MapSwagger();
+app.UseErrorHandler();
+app.UseHttpsRedirection();
+app.UseCors();
+app.MapControllers();
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapUserEndpoints();
+
+app.Run();

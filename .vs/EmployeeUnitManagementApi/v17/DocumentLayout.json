@@ -1,0 +1,96 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\fabio\\Desktop\\MyApps\\EmployeeUnitManagementApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1C9218CB-F010-4F67-9A0C-D1BF4563E7D4}|EmployeeUnitManagementApi.csproj|c:\\users\\fabio\\desktop\\myapps\\employeeunitmanagementapi\\src\\infra\\services\\extensions\\userextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C9218CB-F010-4F67-9A0C-D1BF4563E7D4}|EmployeeUnitManagementApi.csproj|solutionrelative:src\\infra\\services\\extensions\\userextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C9218CB-F010-4F67-9A0C-D1BF4563E7D4}|EmployeeUnitManagementApi.csproj|c:\\users\\fabio\\desktop\\myapps\\employeeunitmanagementapi\\src\\infra\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C9218CB-F010-4F67-9A0C-D1BF4563E7D4}|EmployeeUnitManagementApi.csproj|solutionrelative:src\\infra\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C9218CB-F010-4F67-9A0C-D1BF4563E7D4}|EmployeeUnitManagementApi.csproj|c:\\users\\fabio\\desktop\\myapps\\employeeunitmanagementapi\\src\\domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C9218CB-F010-4F67-9A0C-D1BF4563E7D4}|EmployeeUnitManagementApi.csproj|solutionrelative:src\\domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C9218CB-F010-4F67-9A0C-D1BF4563E7D4}|EmployeeUnitManagementApi.csproj|c:\\users\\fabio\\desktop\\myapps\\employeeunitmanagementapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1C9218CB-F010-4F67-9A0C-D1BF4563E7D4}|EmployeeUnitManagementApi.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserExtension.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\Desktop\\MyApps\\EmployeeUnitManagementApi\\src\\Infra\\Services\\Extensions\\UserExtension.cs",
+              "RelativeDocumentMoniker": "src\\Infra\\Services\\Extensions\\UserExtension.cs",
+              "ToolTip": "C:\\Users\\fabio\\Desktop\\MyApps\\EmployeeUnitManagementApi\\src\\Infra\\Services\\Extensions\\UserExtension.cs",
+              "RelativeToolTip": "src\\Infra\\Services\\Extensions\\UserExtension.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAQwCwAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T02:48:32.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\Desktop\\MyApps\\EmployeeUnitManagementApi\\src\\Infra\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "src\\Infra\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\fabio\\Desktop\\MyApps\\EmployeeUnitManagementApi\\src\\Infra\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "src\\Infra\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAIBJwA4AAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T02:43:29.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\Desktop\\MyApps\\EmployeeUnitManagementApi\\src\\Domain\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "src\\Domain\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\fabio\\Desktop\\MyApps\\EmployeeUnitManagementApi\\src\\Domain\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "src\\Domain\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T02:43:05.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\fabio\\Desktop\\MyApps\\EmployeeUnitManagementApi\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\fabio\\Desktop\\MyApps\\EmployeeUnitManagementApi\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-25T02:32:38.53Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
