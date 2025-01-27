@@ -11,7 +11,7 @@
         /// <param name="message">The error message that explains the reason for the exception.</param>
         public BadRequestException(string message) : base(message)
         {
-            Errors = new string[] { };
+            Errors = new string[] { message };
         }
 
         /// <summary>

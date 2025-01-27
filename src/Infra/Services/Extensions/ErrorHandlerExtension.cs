@@ -40,10 +40,27 @@ namespace EmployeeUnitManagementApi.src.Infra.Services.Extensions
             {
                 await HandleNotFound(context, notFoundException);
             }
+            else if (exception is InvalidOperationException invalidOperationException)
+            {
+                await HandleDbContextConcurrencyError(context, invalidOperationException);
+            }
             else
             {
                 await HandleInternalError(context, exception);
             }
+        }
+
+        private static async Task HandleDbContextConcurrencyError(HttpContext context, InvalidOperationException exception)
+        {
+            context.Response.StatusCode = (int)HttpStatusCode.Conflict;
+
+            var errorResponse = new
+            {
+                Message = "Ocorreu um problema de concorrência ao acessar o banco de dados. Tente novamente.",
+                context.Response.StatusCode
+            };
+
+            await WriteJsonResponse(context, errorResponse);
         }
 
         private static async Task HandleBadRequest(HttpContext context, BadRequestException badRequestException)
@@ -53,7 +70,7 @@ namespace EmployeeUnitManagementApi.src.Infra.Services.Extensions
             var errorResponse = new
             {
                 context.Response.StatusCode,
-                Errors = badRequestException.Errors.ToArray()
+                Errors = badRequestException.Errors
             };
 
             await WriteJsonResponse(context, errorResponse);
@@ -76,11 +93,26 @@ namespace EmployeeUnitManagementApi.src.Infra.Services.Extensions
         {
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-            var errorResponse = new
+            object errorResponse;
+
+            if (exception is JsonException jsonException)
             {
-                exception.Message,
-                context.Response.StatusCode
-            };
+                errorResponse = new
+                {
+                    Message = "Ocorreu um erro ao processar os dados fornecidos.Verifique os valores enviados.",
+                    Details = jsonException.Message,
+                    context.Response.StatusCode
+                };
+            }
+            else
+            {
+                errorResponse = new
+                {
+                    Message = "Ocorreu um erro inesperado no servidor. Tente novamente mais tarde.",
+                    Details = exception.Message,
+                    context.Response.StatusCode
+                };
+            }
 
             await WriteJsonResponse(context, errorResponse);
         }

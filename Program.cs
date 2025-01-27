@@ -11,12 +11,12 @@ builderServices.AddEndpointsApiExplorer();
 builderServices.AddSwaggerGen();
 builderServices.ConfigureCorsPolicy(); // Add CORS policy
 builderServices.AddControllers();
+builderServices.ConfigureServices();
 builder.AddUserContext();
 builder.AddDatabase();
 builder.AddSwaggerDoc();
 builder.AddAuthPolicy();
 builder.AddAuthJwt();
-builderServices.ConfigureServices();
 
 var app = builder.Build();
 

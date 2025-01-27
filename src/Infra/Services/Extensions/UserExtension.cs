@@ -30,7 +30,7 @@ namespace EmployeeUnitManagementApi.src.Infra.Services.Extensions
 
             app.MapPut("/v1/user/{id}", async (IMediator mediator, Guid id, [FromBody] UpdateUserCommand command) =>
             {
-                var updatedCommand = new UpdateUserCommand(id, command.Username, command.Email, command.Role, command.Status);
+                var updatedCommand = new UpdateUserCommand(id, command.Username, command.Email, command.Role, command.Status, command.NewPassword, command.CurrentPassword);
                 var user = await mediator.Send(updatedCommand);
                 return Results.Ok(user);
             }).WithTags("USER").WithSummary("Update a user");

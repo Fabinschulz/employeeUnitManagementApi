@@ -48,11 +48,11 @@ namespace EmployeeUnitManagementApi.src.Domain.Interfaces
         /// <summary>
         /// Changes the password for a user.
         /// </summary>
-        /// <param name="email">The email of the user.</param>
-        /// <param name="password">The current password of the user.</param>
+        /// <param name="userId">The email of the user.</param>
+        /// <param name="currentPassword">The current password of the user.</param>
         /// <param name="newPassword">The new password for the user.</param>
         /// <returns>The user with the updated password.</returns>
-        Task<User> ChangePassword(string email, string password, string newPassword);
+        Task<User> ChangePassword(Guid userId, string currentPassword, string newPassword);
 
         /// <summary>
         /// Initiates the forgot password process for a user.
@@ -60,5 +60,12 @@ namespace EmployeeUnitManagementApi.src.Domain.Interfaces
         /// <param name="email">The email of the user.</param>
         /// <returns>The user for whom the password reset was initiated.</returns>
         Task<User> ForgotPassword(string email);
+
+        /// <summary>
+        /// Updates an existing user.
+        /// </summary>
+        /// <param name="user">The user to update.</param>
+        /// <returns>The updated user.</returns>
+        new Task<User> Update(User user);
     }
 }

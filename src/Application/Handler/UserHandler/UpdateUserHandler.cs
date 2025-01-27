@@ -43,17 +43,15 @@ namespace EmployeeUnitManagementApi.src.Application.Handler.UserHandler
         public async Task<UpdateUserQuery> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
             await ValidateRequest(request);
-
             var user = await _userRepository.GetById(request.Id);
             EnsureUserExists(user, request.Id);
-
+            if (request.CurrentPassword != null && request.NewPassword != null) await NewPassw(request);
             UpdateUserProperties(user, request);
             await _userRepository.Update(user);
 
             var userResponse = MapToUserResponse(user);
             return userResponse;
         }
-
         private async Task ValidateRequest(UpdateUserCommand request)
         {
             await _validator.ValidateAndThrowAsync(request);
@@ -75,6 +73,11 @@ namespace EmployeeUnitManagementApi.src.Application.Handler.UserHandler
             user.Email = request.Email;
             user.Role = request.Role;
             user.Status = request.Status;
+        }
+
+        private Task<User> NewPassw(UpdateUserCommand request)
+        {
+            return _userRepository.ChangePassword(request.Id, request.CurrentPassword!, request.NewPassword!);
         }
 
         private UpdateUserQuery MapToUserResponse(User user)

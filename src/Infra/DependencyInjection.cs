@@ -36,7 +36,7 @@ namespace EmployeeUnitManagementApi.src.Infra
         public static void AddDatabase(this WebApplicationBuilder builder)
         {
             string connectionString = builder.Configuration.GetValue<string>("PostgreSQLConnection", builder.Configuration.GetConnectionString("PostgreSQLConnection")!)!;
-            Console.WriteLine("Initializing Database for API: " + connectionString.Substring(0, 50));
+            Console.WriteLine("Initializing Database for API: " + connectionString.Substring(0, 49));
 
             try
             {
@@ -45,7 +45,7 @@ namespace EmployeeUnitManagementApi.src.Infra
             catch (Exception e)
             {
                 Console.WriteLine("Error connecting to database: " + e.Message);
-                throw new Exception("Error on postgresql: " + connectionString.Substring(0, 50));
+                throw new Exception("Error on postgresql: " + connectionString.Substring(0, 49));
             }
 
         }
@@ -142,10 +142,11 @@ namespace EmployeeUnitManagementApi.src.Infra
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
             services.AddControllers()
-            .AddJsonOptions(options =>
-            {
-                options.JsonSerializerOptions.Converters.Add(new RoleEnumConverter());
-            });
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new RoleEnumConverter());
+                    options.JsonSerializerOptions.Converters.Add(new StatusEnumConverter());
+                });
 
             services.AddHostedService<MigrationHostedService>();
         }

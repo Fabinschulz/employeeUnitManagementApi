@@ -27,25 +27,6 @@ namespace EmployeeUnitManagementApi.src.Infra.Repositories
         }
 
         /// <summary>
-        /// Changes the password for the user with the specified email and current password.
-        /// </summary>
-        /// <param name="email">The email of the user.</param>
-        /// <param name="password">The current password of the user.</param>
-        /// <param name="newPassword">The new password to set for the user.</param>
-        /// <returns>The user with the updated password.</returns>
-        public async Task<User> ChangePassword(string email, string password, string newPassword)
-        {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
-            if (user == null)
-            {
-                throw new KeyNotFoundException("Usuário não encontrado.");
-            }
-            user.Password = newPassword;
-            await _context.SaveChangesAsync();
-            return user;
-        }
-
-        /// <summary>
         /// Resets the password for the user with the specified email.
         /// </summary>
         /// <param name="email">The email of the user.</param>
@@ -128,7 +109,7 @@ namespace EmployeeUnitManagementApi.src.Infra.Repositories
         /// <summary>
         /// Registers a new user.
         /// </summary>
-        /// <param name="user">The user to register.</param>
+        /// <param name="user">The user to register.</param>_
         public async Task<User> Register(User user)
         {
             var existingUser = await GetUserByEmail(user.Email);
@@ -140,6 +121,31 @@ namespace EmployeeUnitManagementApi.src.Infra.Repositories
 
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
+            return user;
+        }
+
+        /// <summary>
+        /// Changes the password for the user with the specified email and current password.
+        /// </summary>
+        /// <param name="userId">The id of the user.</param>
+        /// <param name="currentPassword">The current password of the user.</param>
+        /// <param name="newPassword">The new password to set for the user.</param>
+        /// <returns>The user with the updated password.</returns>
+        public async Task<User> ChangePassword(Guid userId, string currentPassword, string newPassword)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            if (user == null)
+            {
+                throw new KeyNotFoundException("Usuário não encontrado.");
+            }
+
+            if (currentPassword != user.Password)
+            {
+                string errorMessage = "A senha informada não confere com a senha cadastrada.";
+                throw new BadRequestException(errorMessage);
+            }
+
+            user.Password = newPassword;
             return user;
         }
 

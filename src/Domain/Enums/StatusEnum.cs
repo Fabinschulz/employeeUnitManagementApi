@@ -37,14 +37,31 @@ namespace EmployeeUnitManagementApi.src.Domain.Enums
         /// <returns>The converted StatusEnum.</returns>
         public override StatusEnum Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            var value = reader.GetString();
-            if (Enum.TryParse<StatusEnum>(value, true, out var status))
+            // Verifica se o valor é numérico
+            if (reader.TokenType == JsonTokenType.Number)
             {
-                return status;
+                var intValue = reader.GetInt32();
+                if (Enum.IsDefined(typeof(StatusEnum), intValue))
+                {
+                    return (StatusEnum)intValue;
+                }
+
+                throw new JsonException($"Invalid numeric value for {nameof(StatusEnum)}: {intValue}");
+            }
+            else if (reader.TokenType == JsonTokenType.String)
+            {
+                var value = reader.GetString();
+                if (Enum.TryParse<StatusEnum>(value, true, out var status))
+                {
+                    return status;
+                }
+
+                throw new JsonException($"Invalid string value for {nameof(StatusEnum)}: {value}");
             }
 
-            throw new JsonException($"Invalid value for {nameof(StatusEnum)}: {value}");
+            throw new JsonException($"Unexpected token type for {nameof(StatusEnum)}: {reader.TokenType}");
         }
+
 
         /// <summary>
         /// Writes and converts the StatusEnum to JSON.

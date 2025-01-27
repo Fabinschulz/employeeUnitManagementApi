@@ -13,13 +13,13 @@ namespace EmployeeUnitManagementApi.src.Domain.Enums
         /// Usuário com permissões administrativas
         /// </summary>
         [Description("Usuário com permissões administrativas")]
-        Admin = 0,
+        Admin,
 
         /// <summary>
         /// Usuário com permissões básicas
         /// </summary>
         [Description("Usuário com permissões básicas")]
-        User = 1
+        User
     }
 
     /// <summary>
@@ -37,8 +37,31 @@ namespace EmployeeUnitManagementApi.src.Domain.Enums
         /// <exception cref="JsonException">Thrown when the JSON cannot be converted to RoleEnum.</exception>
         public override RoleEnum Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            var value = reader.GetString();
-            return Enum.TryParse<RoleEnum>(value, true, out var role) ? role : throw new JsonException();
+            try
+            {
+                if (reader.TokenType == JsonTokenType.Number)
+                {
+                    var intValue = reader.GetInt32();
+                    if (Enum.IsDefined(typeof(RoleEnum), intValue))
+                    {
+                        return (RoleEnum)intValue;
+                    }
+                }
+                else if (reader.TokenType == JsonTokenType.String)
+                {
+                    var value = reader.GetString();
+                    if (Enum.TryParse<RoleEnum>(value, true, out var role))
+                    {
+                        return role;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new JsonException($"Failed to deserialize RoleEnum: {ex.Message}", ex);
+            }
+
+            throw new JsonException($"Unexpected token type for RoleEnum: {reader.TokenType}");
         }
 
         /// <summary>

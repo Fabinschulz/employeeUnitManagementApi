@@ -1,7 +1,4 @@
-﻿using EmployeeUnitManagementApi.src.Domain.Enums;
-using System.Text.Json.Serialization;
-
-namespace EmployeeUnitManagementApi.src.Application.Queries
+﻿namespace EmployeeUnitManagementApi.src.Application.Queries
 {
     /// <summary>
     /// Represents a query to update a user.
@@ -26,18 +23,11 @@ namespace EmployeeUnitManagementApi.src.Application.Queries
         /// <summary>
         /// Gets the role of the user.
         /// </summary>
-        [JsonConverter(typeof(RoleEnumConverter))]
-        public RoleEnum Role { get; init; }
+        public string? Role { get; init; }
 
         /// <summary>
         /// Gets the status of the user.
         /// </summary>
-        [JsonConverter(typeof(StatusEnumConverter))]
-        public StatusEnum Status { get; init; }
-
-        /// <summary>
-        /// Gets the password of the user.
-        /// </summary>
-        public string? Password { get; init; }
+        public string? Status { get; init; }
     }
 }
