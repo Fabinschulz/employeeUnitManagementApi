@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using EmployeeUnitManagementApi.src.Application.Queries;
+using EmployeeUnitManagementApi.src.Application.Queries.UserQueries;
 using EmployeeUnitManagementApi.src.Domain.Entities;
 
 namespace EmployeeUnitManagementApi.src.Application.Mapper.UserMapper

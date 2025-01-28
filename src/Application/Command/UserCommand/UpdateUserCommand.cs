@@ -1,4 +1,4 @@
-﻿using EmployeeUnitManagementApi.src.Application.Queries;
+﻿using EmployeeUnitManagementApi.src.Application.Queries.UserQueries;
 using EmployeeUnitManagementApi.src.Domain.Enums;
 using FluentValidation;
 using MediatR;

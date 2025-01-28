@@ -1,5 +1,5 @@
 ﻿using EmployeeUnitManagementApi.src.Application.Command.UserCommand;
-using EmployeeUnitManagementApi.src.Application.Queries;
+using EmployeeUnitManagementApi.src.Application.Queries.UserQueries;
 using EmployeeUnitManagementApi.src.Domain.Interfaces;
 using MediatR;
 

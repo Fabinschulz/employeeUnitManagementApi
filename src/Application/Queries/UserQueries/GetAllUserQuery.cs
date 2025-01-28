@@ -1,8 +1,8 @@
 ﻿using EmployeeUnitManagementApi.src.Application.Common.Models;
-using EmployeeUnitManagementApi.src.Application.Queries.DTOs;
+using EmployeeUnitManagementApi.src.Application.Queries.UserQueries.DTOs;
 using EmployeeUnitManagementApi.src.Domain.Entities;
 
-namespace EmployeeUnitManagementApi.src.Application.Queries
+namespace EmployeeUnitManagementApi.src.Application.Queries.UserQueries
 {
     /// <summary>
     /// Represents a query to get all users with pagination.

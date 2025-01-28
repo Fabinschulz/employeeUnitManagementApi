@@ -60,11 +60,5 @@ namespace EmployeeUnitManagementApi.src.Domain.Interfaces
         /// <returns>The user for whom the password reset was initiated.</returns>
         Task<User> ForgotPassword(string email);
 
-        /// <summary>
-        /// Updates an existing user.
-        /// </summary>
-        /// <param name="user">The user to update.</param>
-        /// <returns>The updated user.</returns>
-        new Task<User> Update(User user);
     }
 }

@@ -3,7 +3,7 @@ using EmployeeUnitManagementApi.src.Domain.Entities;
 using EmployeeUnitManagementApi.src.Domain.Enums;
 using System.Text.Json.Serialization;
 
-namespace EmployeeUnitManagementApi.src.Application.Queries.DTOs
+namespace EmployeeUnitManagementApi.src.Application.Queries.UserQueries.DTOs
 {
     /// <summary>
     /// Represents a Data Transfer Object for the User entity.

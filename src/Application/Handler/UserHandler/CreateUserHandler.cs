@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using FluentValidation;
 using AutoMapper;
-using EmployeeUnitManagementApi.src.Application.Queries;
 using EmployeeUnitManagementApi.src.Domain.Interfaces;
 using EmployeeUnitManagementApi.src.Domain.Entities;
 using EmployeeUnitManagementApi.src.Application.Command.UserCommand;
+using EmployeeUnitManagementApi.src.Application.Queries.UserQueries;
 
 namespace EmployeeUnitManagementApi.src.Application.Handler.UserHandler
 {

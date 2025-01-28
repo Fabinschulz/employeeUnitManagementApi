@@ -13,6 +13,7 @@ builderServices.ConfigureCorsPolicy(); // Add CORS policy
 builderServices.AddControllers();
 builderServices.ConfigureServices();
 builder.AddUserContext();
+builder.AddEmployeeContext();
 builder.AddDatabase();
 builder.AddSwaggerDoc();
 builder.AddAuthPolicy();
@@ -40,5 +41,6 @@ app.MapControllers();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapUserEndpoints();
+app.MapEmployeeEndpoints();
 
 app.Run();

@@ -1,4 +1,4 @@
-﻿namespace EmployeeUnitManagementApi.src.Application.Queries
+﻿namespace EmployeeUnitManagementApi.src.Application.Queries.UserQueries
 {
     /// <summary>
     /// Represents a query for logging in a user.

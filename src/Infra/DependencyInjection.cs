@@ -28,6 +28,16 @@ namespace EmployeeUnitManagementApi.src.Infra
             builder.Services.AddTransient<UserRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
         }
+        
+        /// <summary>
+        /// Adds the employee context to the service collection.
+        /// </summary>
+        /// <param name="builder">The web application builder.</param>
+        public static void AddEmployeeContext(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddTransient<EmployeeRepository>();
+            builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        }
 
         /// <summary>
         /// Adds the database context to the service collection.
