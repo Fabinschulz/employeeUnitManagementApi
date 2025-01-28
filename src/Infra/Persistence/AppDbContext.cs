@@ -17,6 +17,16 @@ namespace EmployeeUnitManagementApi.src.Infra.Persistence
         public DbSet<User> Users => Set<User>();
 
         /// <summary>
+        /// Gets or sets the Units.
+        /// </summary>
+        public DbSet<Unit> Units => Set<Unit>();
+
+        /// <summary>
+        /// Gets or sets the Employees.
+        /// </summary>
+        public DbSet<Employee> Employees => Set<Employee>();
+
+        /// <summary>
         /// Configures the schema needed for the context.
         /// </summary>
         /// <param name="modelBuilder">The builder being used to construct the model for this context.</param>
@@ -26,7 +36,6 @@ namespace EmployeeUnitManagementApi.src.Infra.Persistence
             modelBuilder.Entity<User>().Property(u => u.Email).IsRequired();
             modelBuilder.Entity<User>().Property(u => u.Password).IsRequired();
             modelBuilder.Entity<User>().Property(u => u.Role).IsRequired(false).HasMaxLength(50).HasColumnType("varchar(50)");
-            modelBuilder.Entity<User>().Property(u => u.Username).IsRequired(false).HasMaxLength(80).HasColumnType("varchar(80)");
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
             base.OnModelCreating(modelBuilder);

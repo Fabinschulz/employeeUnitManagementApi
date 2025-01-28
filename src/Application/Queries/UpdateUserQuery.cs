@@ -11,11 +11,6 @@
         public Guid Id { get; init; }
 
         /// <summary>
-        /// Gets the username of the user.
-        /// </summary>
-        public string Username { get; init; } = null!;
-
-        /// <summary>
         /// Gets the email of the user.
         /// </summary>
         public string Email { get; init; } = null!;

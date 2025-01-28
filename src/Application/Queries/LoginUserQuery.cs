@@ -11,11 +11,6 @@
         public string Id { get; init; } = string.Empty;
 
         /// <summary>
-        /// Gets the username of the user.
-        /// </summary>
-        public string Username { get; init; } = string.Empty;
-
-        /// <summary>
         /// Gets the email of the user.
         /// </summary>
         public string Email { get; init; } = string.Empty;

@@ -30,7 +30,7 @@ namespace EmployeeUnitManagementApi.src.Infra.Services.Extensions
 
             app.MapPut("/v1/user/{id}", async (IMediator mediator, Guid id, [FromBody] UpdateUserCommand command) =>
             {
-                var updatedCommand = new UpdateUserCommand(id, command.Username, command.Email, command.Role, command.Status, command.NewPassword, command.CurrentPassword);
+                var updatedCommand = new UpdateUserCommand(id, command.Email, command.Role, command.Status, command.NewPassword, command.CurrentPassword);
                 var user = await mediator.Send(updatedCommand);
                 return Results.Ok(user);
             }).WithTags("USER").WithSummary("Update a user");
@@ -49,9 +49,9 @@ namespace EmployeeUnitManagementApi.src.Infra.Services.Extensions
                 return Results.Ok(user);
             }).WithTags("USER").WithSummary("Delete a user").RequireAuthorization("Admin");
 
-            app.MapGet("/v1/user", async (IMediator mediator, string? username, string? email, string? orderBy, StatusEnum? status, RoleEnum? role, int page = 0, int size = 20) =>
+            app.MapGet("/v1/user", async (IMediator mediator, string? email, string? orderBy, StatusEnum? status, RoleEnum? role, int page = 0, int size = 20) =>
             {
-                var getAllUserRequest = new GetAllUserCommand(page, size, username, email, orderBy, status, role);
+                var getAllUserRequest = new GetAllUserCommand(page, size, email, orderBy, status, role);
                 var users = await mediator.Send(getAllUserRequest);
                 return Results.Ok(users);
             }).WithTags("USER").WithSummary("Get all users");

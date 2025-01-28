@@ -14,6 +14,16 @@ namespace EmployeeUnitManagementApi.src.Domain.Interfaces
         DbSet<User> Users { get; }
 
         /// <summary>
+        /// Gets the Units DbSet.
+        /// </summary>
+        DbSet<Unit> Units { get; }
+
+        /// <summary>
+        /// Gets the Employees DbSet.
+        /// </summary>
+        DbSet<Employee> Employees { get; }
+
+        /// <summary>
         /// Saves all changes made in this context to the database.
         /// </summary>
         /// <param name="cancellationToken">A cancellation token to observe while waiting for the task to complete.</param>

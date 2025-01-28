@@ -50,7 +50,6 @@ namespace EmployeeUnitManagementApi.src.Application.Handler.UserHandler
             var users = await _userRepository.GetAll(
                 request.Page,
                 request.Size,
-                request.Username,
                 request.Email,
                 request.OrderBy,
                 request.Status,

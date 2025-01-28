@@ -69,7 +69,6 @@ namespace EmployeeUnitManagementApi.src.Application.Handler.UserHandler
 
         private void UpdateUserProperties(User user, UpdateUserCommand request)
         {
-            user.Username = request.Username;
             user.Email = request.Email;
             user.Role = request.Role;
             user.Status = request.Status;

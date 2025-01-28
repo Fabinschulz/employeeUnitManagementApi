@@ -94,7 +94,6 @@ namespace EmployeeUnitManagementApi.src.Infra.Repositories
             var loggedUser = new User(user.Email, user.Password)
             {
                 Id = user.Id,
-                Username = user.Username,
                 Role = user.Role,
                 Token = token
             };
@@ -159,17 +158,15 @@ namespace EmployeeUnitManagementApi.src.Infra.Repositories
         /// </summary>
         /// <param name="page">The page number to retrieve.</param>
         /// <param name="size">The number of items per page.</param>
-        /// <param name="username">The username to filter by.</param>
         /// <param name="email">The email to filter by.</param>
         /// <param name="orderBy">The field to order by.</param>
         /// <param name="status">The status to filter by.</param>
         /// <param name="role">The role to filter by.</param>
         /// <returns>A paginated list of users.</returns>
-        public async Task<ListDataPagination<User>> GetAll(int page, int size, string? username, string? email, string? orderBy, StatusEnum? status, RoleEnum? role)
+        public async Task<ListDataPagination<User>> GetAll(int page, int size, string? email, string? orderBy, StatusEnum? status, RoleEnum? role)
         {
             var query = BuildBaseQuery();
 
-            ApplyUsernameFilter(ref query, username);
             ApplyEmailFilter(ref query, email);
             ApplyStatusFilter(ref query, status);
             ApplyRoleFilter(ref query, role);
@@ -184,12 +181,6 @@ namespace EmployeeUnitManagementApi.src.Infra.Repositories
             var data = await query.Skip(page * size).Take(size).ToListAsync();
 
             return new ListDataPagination<User>(data, page, size, totalItems);
-        }
-
-        private static void ApplyUsernameFilter(ref IQueryable<User> query, string? username)
-        {
-            username = username?.ToLower().Trim();
-            ApplyFilterIfNotEmpty(username, x => EF.Property<string>(x, "Username").ToLower().Contains(username!), ref query);
         }
 
         private static void ApplyEmailFilter(ref IQueryable<User> query, string? email)
@@ -243,10 +234,6 @@ namespace EmployeeUnitManagementApi.src.Infra.Repositories
                     return query.OrderBy(x => x.CreatedAt);
                 case "createdAt_DESC":
                     return query.OrderByDescending(x => x.CreatedAt);
-                case "username_ASC":
-                    return query.OrderBy(x => x.Username);
-                case "username_DESC":
-                    return query.OrderByDescending(x => x.Username);
                 case "email_ASC":
                     return query.OrderBy(x => x.Email);
                 case "email_DESC":

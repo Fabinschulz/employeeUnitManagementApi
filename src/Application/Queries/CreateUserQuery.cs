@@ -13,11 +13,6 @@ namespace EmployeeUnitManagementApi.src.Application.Queries
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the username for the user.
-        /// </summary>
-        public string? Username { get; set; }
-
-        /// <summary>
         /// Gets or sets the email for the user.
         /// </summary>
         public required string Email { get; set; }
@@ -42,7 +37,6 @@ namespace EmployeeUnitManagementApi.src.Application.Queries
             return new CreateUserQuery
             {
                 Id = user.Id,
-                Username = user.Username,
                 Email = user.Email,
                 Role = user.Role.ToString()!,
                 Status = user.Status.ToString()!

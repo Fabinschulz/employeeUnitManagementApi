@@ -1,53 +1,43 @@
+networks:
+  dev:
+    driver: bridge
+
 services:
-  postgres:
+  db:
     image: postgres:15.8-alpine
-    container_name: postgres_container
-    ports:
-      - "5432:5432"
+    container_name: postgres_db
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: employeeUnitDB
+    ports:
+      - "5432:5432"
     networks:
-      - employeeUnitDB_network
+      - dev
     volumes:
-      - ./db/:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U postgres" ]
       interval: 5s
       timeout: 5s
       retries: 5
-  
-  redis:
-    image: redis:6.2.6-alpine
-    container_name: redis_container
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
-    ports:
-      - "6379:6379"
-    networks:
-      - employeeUnitDB_network
-    volumes:
-      - 'employeeUnitDB_redis_data:/data'
 
   api:
     container_name: api_container
-    ports:
-      - "8080:8080"
     build:
       context: .
-    depends_on:
-      postgres:
-        condition: service_healthy
+      dockerfile: Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=db;Database=nome_do_banco;Username=seu_usuario;Password=sua_senha
+    ports:
+      - "5000:80"
     restart: always
+    depends_on:
+        db:
+          condition: service_healthy
     networks:
-      - employeeUnitDB_network
-
-networks:
-  employeeUnitDB_network:
-    driver: bridge
+      - dev
 
 volumes:
-  db:
-  employeeUnitDB_redis_data:
+  postgres_data:

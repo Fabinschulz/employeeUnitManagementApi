@@ -15,13 +15,12 @@ namespace EmployeeUnitManagementApi.src.Domain.Interfaces
         /// </summary>
         /// <param name="Page">The page number to retrieve.</param>
         /// <param name="Size">The number of items per page.</param>
-        /// <param name="Username">The username to filter by.</param>
         /// <param name="Email">The email to filter by.</param>
         /// <param name="OrderBy">The field to order by.</param>
         /// <param name="status">The status to filter by.</param>
         /// <param name="role">The role to filter by.</param>
         /// <returns>A paginated list of users.</returns>
-        Task<ListDataPagination<User>> GetAll(int Page, int Size, string? Username, string? Email, string? OrderBy, StatusEnum? status, RoleEnum? role);
+        Task<ListDataPagination<User>> GetAll(int Page, int Size, string? Email, string? OrderBy, StatusEnum? status, RoleEnum? role);
 
         /// <summary>
         /// Retrieves the authenticated user based on the provided claims principal.

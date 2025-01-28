@@ -11,7 +11,6 @@ namespace EmployeeUnitManagementApi.src.Application.Command.UserCommand
     /// </summary>
     /// <param name="Page">The page number.</param>
     /// <param name="Size">The size of the page.</param>
-    /// <param name="Username">The username to filter by.</param>
     /// <param name="Email">The email to filter by.</param>
     /// <param name="OrderBy">The field to order by.</param>
     /// <param name="Status">The status to filter by.</param>
@@ -19,7 +18,6 @@ namespace EmployeeUnitManagementApi.src.Application.Command.UserCommand
     public sealed record GetAllUserCommand(
         int Page,
         int Size,
-        string? Username,
         string? Email,
         string? OrderBy,
         StatusEnum? Status,

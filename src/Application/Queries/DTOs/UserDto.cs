@@ -11,11 +11,6 @@ namespace EmployeeUnitManagementApi.src.Application.Queries.DTOs
     public class UserDto : BaseEntity
     {
         /// <summary>
-        /// Gets or sets the username of the user.
-        /// </summary>
-        public string? Username { get; set; }
-
-        /// <summary>
         /// Gets or sets the email of the user.
         /// </summary>
         public string Email { get; set; }
@@ -32,7 +27,6 @@ namespace EmployeeUnitManagementApi.src.Application.Queries.DTOs
         /// <param name="user">The user entity.</param>
         public UserDto(User user)
         {
-            Username = user.Username;
             Email = user.Email;
             Role = user.Role;
             Status = user.Status;
