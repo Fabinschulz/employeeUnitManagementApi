@@ -37,6 +37,20 @@ namespace EmployeeUnitManagementApi.src.Infra.Persistence
             modelBuilder.Entity<User>().Property(u => u.Password).IsRequired();
             modelBuilder.Entity<User>().Property(u => u.Role).IsRequired(false).HasMaxLength(50).HasColumnType("varchar(50)");
 
+            // Relacionamento User ↔ Employee (1:1)
+            modelBuilder.Entity<Employee>()
+                .HasOne(e => e.User)
+                .WithOne()
+                .HasForeignKey<Employee>(e => e.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Relacionamento Unit ↔ Employee (1:N)
+            modelBuilder.Entity<Employee>()
+                .HasOne(e => e.Unit)  // Employee tem uma Unit
+                .WithMany(u => u.Employees) // Unit tem muitos Employees
+                .HasForeignKey(e => e.UnitId) // FK em Employee
+                .OnDelete(DeleteBehavior.SetNull);
+
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
