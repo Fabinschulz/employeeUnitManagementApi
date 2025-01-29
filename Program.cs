@@ -21,13 +21,8 @@ builder.AddAuthPolicy();
 builder.AddAuthJwt();
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 var options = new RewriteOptions().AddRedirect("^$", "swagger/index.html");
 app.UseRewriter(options);
