@@ -44,6 +44,8 @@
         /// <param name="email">The email of the user.</param>
         /// <param name="role">The role of the user (Admin, User).</param>
         /// <param name="status">The status of the user (Active, Inactive).</param>
+        /// <param name="createdAt">The creation date and time of the entity.</param>
+        /// <param name="updatedAt">The last updated date and time of the entity.</param>
         public GetUserByIdQuery(Guid id, string? email, string? role, string? status, DateTimeOffset createdAt, DateTimeOffset? updatedAt)
         {
             Id = id;
