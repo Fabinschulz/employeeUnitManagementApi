@@ -7,7 +7,7 @@ namespace EmployeeUnitManagementApi.src.Application.Queries.UserQueries
     /// <summary>
     /// Represents a query to get all users with pagination.
     /// </summary>
-    public class GetAllUserQuery
+    public sealed record GetAllUserQuery
     {
         /// <summary>
         /// Gets or sets the current page number.

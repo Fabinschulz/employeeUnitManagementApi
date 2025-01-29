@@ -70,7 +70,7 @@ namespace EmployeeUnitManagementApi.src.Infra.Repositories
                 case "name_DESC":
                     return query.OrderByDescending(x => x.Name);
                 case "unit_ASC":
-                    return query.OrderBy(x => x.Unit).ThenBy(x => x.Name);
+                    return query.OrderBy(x => x.Unit);
                 case "unit_DESC":
                     return query.OrderByDescending(x => x.Unit);
                 default:

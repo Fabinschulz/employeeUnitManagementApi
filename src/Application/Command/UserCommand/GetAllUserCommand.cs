@@ -24,7 +24,6 @@ namespace EmployeeUnitManagementApi.src.Application.Command.UserCommand
         RoleEnum? Role)
         : IRequest<GetAllUserQuery>;
 
-    // Validator for GetAllUserCommand
     /// <summary>
     /// Validator for GetAllUserCommand.
     /// </summary>

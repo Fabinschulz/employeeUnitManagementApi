@@ -14,19 +14,19 @@ namespace EmployeeUnitManagementApi.src.Application.Handler.EmployeesHandler
     public sealed class CreateEmployeeHandler : IRequestHandler<CreateEmployeeCommand, CreateEmployeeQuery>
     {
         private readonly IMapper _mapper;
-        private readonly IEmployeeRepository _userRepository;
+        private readonly IEmployeeRepository _employeeRepository;
         private readonly IValidator<CreateEmployeeCommand> _validator;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateEmployeeHandler"/> class.
         /// </summary>
         /// <param name="mapper">The mapper.</param>
-        /// <param name="userRepository">The user repository.</param>
+        /// <param name="employeeRepository">The employee repository.</param>
         /// <param name="validator">The validator.</param>
-        public CreateEmployeeHandler(IMapper mapper, IEmployeeRepository userRepository, IValidator<CreateEmployeeCommand> validator)
+        public CreateEmployeeHandler(IMapper mapper, IEmployeeRepository employeeRepository, IValidator<CreateEmployeeCommand> validator)
         {
             _mapper = mapper;
-            _userRepository = userRepository;
+            _employeeRepository = employeeRepository;
             _validator = validator;
         }
 
@@ -59,7 +59,7 @@ namespace EmployeeUnitManagementApi.src.Application.Handler.EmployeesHandler
 
         private async Task<Employee> Register(Employee employee)
         {
-            return await _userRepository.Create(employee);
+            return await _employeeRepository.Create(employee);
         }
 
         private CreateEmployeeQuery MapEmployeeToResponse(Employee employee)

@@ -49,7 +49,7 @@ namespace EmployeeUnitManagementApi.src.Application.Handler.UserHandler
             var user = await _userRepository.GetById(request.Id);
             if (user == null)
             {
-                throw new NotFoundException("User not found");
+                throw new NotFoundException("Usuário não encontrado");
             }
 
             return _mapper.Map<GetUserByIdQuery>(user);

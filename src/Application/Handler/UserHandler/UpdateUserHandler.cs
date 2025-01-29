@@ -49,7 +49,7 @@ namespace EmployeeUnitManagementApi.src.Application.Handler.UserHandler
             UpdateUserProperties(user, request);
             await _userRepository.Update(user);
 
-            var userResponse = MapToUserResponse(user);
+            var userResponse = _mapper.Map<UpdateUserQuery>(user);
             return userResponse;
         }
         private async Task ValidateRequest(UpdateUserCommand request)
@@ -78,11 +78,5 @@ namespace EmployeeUnitManagementApi.src.Application.Handler.UserHandler
         {
             return _userRepository.ChangePassword(request.Id, request.CurrentPassword!, request.NewPassword!);
         }
-
-        private UpdateUserQuery MapToUserResponse(User user)
-        {
-            return _mapper.Map<UpdateUserQuery>(user);
-        }
-
     }
 }
