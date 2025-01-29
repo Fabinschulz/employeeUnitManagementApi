@@ -19,10 +19,5 @@
         /// Gets the token of the user.
         /// </summary>
         public string Token { get; init; } = string.Empty;
-
-        /// <summary>
-        /// Gets the status of the user (Active, Inactive).
-        /// </summary>
-        public string Status { get; init; } = string.Empty;
     }
 }
