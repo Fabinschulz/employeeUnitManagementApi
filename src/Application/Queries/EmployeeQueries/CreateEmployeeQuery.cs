@@ -1,6 +1,4 @@
-﻿using EmployeeUnitManagementApi.src.Domain.Entities;
-
-namespace EmployeeUnitManagementApi.src.Application.Queries.EmployeeQueries
+﻿namespace EmployeeUnitManagementApi.src.Application.Queries.EmployeeQueries
 {
     /// <summary>
     /// Represents a query to create an employee.
@@ -8,7 +6,7 @@ namespace EmployeeUnitManagementApi.src.Application.Queries.EmployeeQueries
     public sealed record CreateEmployeeQuery
     {
         /// <summary>
-        /// Gets the unique identifier of the user.
+        /// Gets the unique identifier of the employee.
         /// </summary>
         public Guid Id { get; init; }
     }

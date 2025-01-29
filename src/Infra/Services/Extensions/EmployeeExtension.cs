@@ -18,7 +18,7 @@ namespace EmployeeUnitManagementApi.src.Infra.Services.Extensions
             app.MapPost("/v1/employee/register", async (IMediator mediator, CreateEmployeeCommand command) =>
             {
                 var employee = await mediator.Send(command);
-                return Results.Created($"/v1/employee/{employee.Id}", employee);
+                return Results.Created($"/v1/employee/{employee.Id}", employee.Id);
             }).WithTags("EMPLOYEE").WithSummary("Create a new employee").WithOpenApi();
 
             app.MapPut("/v1/employee/{id}", async (IMediator mediator, Guid id, [FromBody] UpdateEmployeeCommand command) =>

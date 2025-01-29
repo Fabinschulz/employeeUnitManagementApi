@@ -22,7 +22,7 @@ namespace EmployeeUnitManagementApi.src.Application.Command.EmployeesCommand
         public GetEmployeeIdValidator()
         {
             RuleFor(x => x.Id)
-                .NotEmpty().WithMessage("O campo 'Colaborador' é obrigatório.")
+                .NotEmpty()
                 .Must(id => IsGuidValid(id)).WithMessage("Colaborador inválido.");
         }
 

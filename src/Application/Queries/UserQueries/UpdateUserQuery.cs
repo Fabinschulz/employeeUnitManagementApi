@@ -1,9 +1,28 @@
-﻿using EmployeeUnitManagementApi.src.Domain.Common;
-
-namespace EmployeeUnitManagementApi.src.Application.Queries.UserQueries
+﻿namespace EmployeeUnitManagementApi.src.Application.Queries.UserQueries
 {
     /// <summary>
     /// Represents a query to update a user.
     /// </summary>
-    public sealed class UpdateUserQuery : BaseEntity { }
+    public sealed record UpdateUserQuery
+    {
+        /// <summary>
+        /// Gets the unique identifier of the user.
+        /// </summary>
+        public Guid Id { get; init; }
+
+        /// <summary>
+        /// Gets the email of the user.
+        /// </summary>
+        public string Email { get; init; } = null!;
+
+        /// <summary>
+        /// Gets the role of the user.
+        /// </summary>
+        public string? Role { get; init; }
+
+        /// <summary>
+        /// Gets the status of the user.
+        /// </summary>
+        public string? Status { get; init; }
+    }
 }

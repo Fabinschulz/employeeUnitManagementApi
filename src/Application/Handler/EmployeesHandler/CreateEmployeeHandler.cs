@@ -2,6 +2,7 @@
 using EmployeeUnitManagementApi.src.Application.Command.EmployeesCommand;
 using EmployeeUnitManagementApi.src.Application.Queries.EmployeeQueries;
 using EmployeeUnitManagementApi.src.Domain.Entities;
+using EmployeeUnitManagementApi.src.Domain.Enums;
 using EmployeeUnitManagementApi.src.Domain.Interfaces;
 using FluentValidation;
 using MediatR;
@@ -15,6 +16,7 @@ namespace EmployeeUnitManagementApi.src.Application.Handler.EmployeesHandler
     {
         private readonly IMapper _mapper;
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IUnitRepository _unitRepository;
         private readonly IValidator<CreateEmployeeCommand> _validator;
 
         /// <summary>
@@ -22,11 +24,13 @@ namespace EmployeeUnitManagementApi.src.Application.Handler.EmployeesHandler
         /// </summary>
         /// <param name="mapper">The mapper.</param>
         /// <param name="employeeRepository">The employee repository.</param>
+        /// <param name="unitRepository">The unit repository.</param>
         /// <param name="validator">The validator.</param>
-        public CreateEmployeeHandler(IMapper mapper, IEmployeeRepository employeeRepository, IValidator<CreateEmployeeCommand> validator)
+        public CreateEmployeeHandler(IMapper mapper, IEmployeeRepository employeeRepository, IUnitRepository unitRepository, IValidator<CreateEmployeeCommand> validator)
         {
             _mapper = mapper;
             _employeeRepository = employeeRepository;
+            _unitRepository = unitRepository;
             _validator = validator;
         }
 
@@ -39,6 +43,18 @@ namespace EmployeeUnitManagementApi.src.Application.Handler.EmployeesHandler
         public async Task<CreateEmployeeQuery> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
             await ValidateRequest(request);
+
+            // Verifica se a unidade está ativa
+            var unit = await _unitRepository.GetById(request.UnitId);
+            if (unit == null)
+            {
+                throw new Exception($"A unidade com ID {request.UnitId} não foi encontrada.");
+            }
+
+            if (unit.Status != StatusEnum.Ativo)
+            {
+                throw new Exception($"Não é possível adicionar colaboradores a uma unidade inativa.");
+            }
 
             var mappedEmployee = MapEmployee(request);
             var registered = await Register(mappedEmployee);

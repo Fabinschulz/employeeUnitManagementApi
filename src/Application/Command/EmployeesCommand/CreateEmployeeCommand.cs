@@ -11,7 +11,7 @@ namespace EmployeeUnitManagementApi.src.Application.Command.EmployeesCommand
     /// <param name="Name">The name of the employee.</param>
     /// <param name="UnitId">The unit ID associated with the employee.</param>
     ///  <param name="UserId">The user ID associated with the employee.</param>
-    public sealed record CreateEmployeeCommand(string Name, string UnitId, string UserId) : IRequest<CreateEmployeeQuery>;
+    public sealed record CreateEmployeeCommand(string Name, Guid UnitId, Guid UserId) : IRequest<CreateEmployeeQuery>;
 
     /// <summary>
     /// Validator for the CreateEmployeeCommand.

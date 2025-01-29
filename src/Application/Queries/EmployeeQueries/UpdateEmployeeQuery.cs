@@ -1,9 +1,9 @@
-﻿using EmployeeUnitManagementApi.src.Domain.Common;
+﻿using EmployeeUnitManagementApi.src.Domain.Entities;
 
 namespace EmployeeUnitManagementApi.src.Application.Queries.EmployeeQueries
 {
     /// <summary>
-    /// Represents a query to update a user.
+    /// Represents a query to update a employee.
     /// </summary>
-    public sealed class UpdateEmployeeQuery : BaseEntity { }
+    public sealed class UpdateEmployeeQuery : Employee { }
 }

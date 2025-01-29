@@ -28,7 +28,7 @@ namespace EmployeeUnitManagementApi.src.Infra
             builder.Services.AddTransient<UserRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
         }
-        
+
         /// <summary>
         /// Adds the employee context to the service collection.
         /// </summary>
@@ -37,6 +37,16 @@ namespace EmployeeUnitManagementApi.src.Infra
         {
             builder.Services.AddTransient<EmployeeRepository>();
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        }
+
+        /// <summary>
+        /// Adds the unit context to the service collection.
+        /// </summary>
+        /// <param name="builder">The web application builder.</param>
+        public static void AddUnitContext(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddTransient<UnitRepository>();
+            builder.Services.AddScoped<IUnitRepository, UnitRepository>();
         }
 
         /// <summary>

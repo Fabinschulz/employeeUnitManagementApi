@@ -1,12 +1,12 @@
 ﻿using EmployeeUnitManagementApi.src.Application.Common.Models;
 using EmployeeUnitManagementApi.src.Domain.Entities;
 
-namespace EmployeeUnitManagementApi.src.Application.Queries.EmployeeQueries
+namespace EmployeeUnitManagementApi.src.Application.Queries.UnitQueries
 {
     /// <summary>
-    /// Represents a query to get all employees with pagination data.
+    /// Represents a query to get all unit with pagination data.
     /// </summary>
-    public sealed record GetAllEmployeeQuery
+    public sealed record GetAllUnitQuery
     {
         /// <summary>
         /// Gets or sets the current page number.
@@ -24,20 +24,20 @@ namespace EmployeeUnitManagementApi.src.Application.Queries.EmployeeQueries
         public int TotalItems { get; set; }
 
         /// <summary>
-        /// Gets or sets the list of employee data transfer objects.
+        /// Gets or sets the list of unit data transfer objects.
         /// </summary>
-        public List<Employee> Data { get; set; }
+        public List<Unit> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetAllEmployeeQuery"/> class.
+        /// Initializes a new instance of the <see cref="GetAllUnitQuery"/> class.
         /// </summary>
-        /// <param name="entity">The entity containing pagination data and employee list.</param>
-        public GetAllEmployeeQuery(ListDataPagination<Employee> entity)
+        /// <param name="entity">The entity containing pagination data and unit list.</param>
+        public GetAllUnitQuery(ListDataPagination<Unit> entity)
         {
             Page = entity.Page;
             TotalPages = entity.TotalPages;
             TotalItems = entity.TotalItems;
-            Data = entity.Data.Select(e => e).ToList();
+            Data = entity.Data.Select(u => u).ToList();
         }
     }
 }

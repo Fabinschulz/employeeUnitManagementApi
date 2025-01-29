@@ -14,6 +14,7 @@ builderServices.AddControllers();
 builderServices.ConfigureServices();
 builder.AddUserContext();
 builder.AddEmployeeContext();
+builder.AddUnitContext();
 builder.AddDatabase();
 builder.AddSwaggerDoc();
 builder.AddAuthPolicy();
@@ -42,5 +43,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapUserEndpoints();
 app.MapEmployeeEndpoints();
+app.MapUnitEndpoints();
 
 app.Run();

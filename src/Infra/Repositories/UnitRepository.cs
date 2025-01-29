@@ -7,33 +7,32 @@ using Microsoft.EntityFrameworkCore;
 namespace EmployeeUnitManagementApi.src.Infra.Repositories
 {
     /// <summary>
-    /// Repository class for managing Employee entities.
+    /// Repository for managing unit entities.
     /// </summary>
-    public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
+    public class UnitRepository : BaseRepository<Unit>, IUnitRepository
     {
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EmployeeRepository"/> class.
+         /// <summary>
+        /// Initializes a new instance of the <see cref="UnitRepository"/> class.
         /// </summary>
         /// <param name="context">The database context.</param>
-        public EmployeeRepository(AppDbContext context) : base(context)
+        public UnitRepository(AppDbContext context) : base(context)
         {
         }
 
-        private IQueryable<Employee> BuildBaseQuery()
+        private IQueryable<Unit> BuildBaseQuery()
         {
-            return _context.Set<Employee>().AsQueryable();
+            return _context.Set<Unit>().AsQueryable();
         }
-        
+
         /// <summary>
-        /// Retrieves a paginated list of employees with optional filtering and sorting.
+        /// Retrieves a paginated list of unit with optional filtering and sorting.
         /// </summary>
         /// <param name="page">The page number.</param>
         /// <param name="size">The number of items per page.</param>
         /// <param name="name">The name filter.</param>
         /// <param name="orderBy">The order by clause.</param>
-        /// <returns>A paginated list of employees.</returns>
-        public async Task<ListDataPagination<Employee>> GetAll(int page, int size, string? name, string? orderBy)
+        /// <returns>A paginated list of unit.</returns>
+        public async Task<ListDataPagination<Unit>> GetAll(int page, int size, string? name, string? orderBy)
         {
             var query = BuildBaseQuery();
             ApplyNameFilter(ref query, name);
@@ -47,10 +46,10 @@ namespace EmployeeUnitManagementApi.src.Infra.Repositories
 
             var data = await query.Skip(page * size).Take(size).ToListAsync();
 
-            return new ListDataPagination<Employee>(data, page, size, totalItems);
+            return new ListDataPagination<Unit>(data, page, size, totalItems);
         }
 
-        private static void ApplyNameFilter(ref IQueryable<Employee> query, string? name)
+        private static void ApplyNameFilter(ref IQueryable<Unit> query, string? name)
         {
             if (!string.IsNullOrEmpty(name))
             {
@@ -58,7 +57,7 @@ namespace EmployeeUnitManagementApi.src.Infra.Repositories
             }
         }
 
-        private static IQueryable<Employee> ApplyOrderBy(IQueryable<Employee> query, string orderBy)
+        private static IQueryable<Unit> ApplyOrderBy(IQueryable<Unit> query, string orderBy)
         {
             switch (orderBy)
             {
@@ -71,9 +70,9 @@ namespace EmployeeUnitManagementApi.src.Infra.Repositories
                 case "name_DESC":
                     return query.OrderByDescending(x => x.Name);
                 case "unit_ASC":
-                    return query.OrderBy(x => x.Unit);
+                    return query.OrderBy(x => x.Employees);
                 case "unit_DESC":
-                    return query.OrderByDescending(x => x.Unit);
+                    return query.OrderByDescending(x => x.Employees);
                 default:
                     return query.OrderByDescending(x => x.CreatedAt);
             }

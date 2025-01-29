@@ -37,7 +37,9 @@ namespace EmployeeUnitManagementApi.src.Infra.Persistence
             modelBuilder.Entity<User>().Property(u => u.Password).IsRequired();
             modelBuilder.Entity<User>().Property(u => u.Role).IsRequired(false).HasMaxLength(50).HasColumnType("varchar(50)");
             modelBuilder.Entity<Employee>().HasKey(e => e.Id);
-            modelBuilder.Entity<Employee>().Property(e => e.Name).IsRequired();
+            modelBuilder.Entity<Employee>().Property(e => e.Name).IsRequired().HasMaxLength(100);
+            modelBuilder.Entity<Unit>().HasKey(u => u.Id);
+            modelBuilder.Entity<Unit>().Property(u => u.Name).IsRequired().HasMaxLength(100);
 
             // Relacionamento User ↔ Employee (1:1)
             modelBuilder.Entity<Employee>()
