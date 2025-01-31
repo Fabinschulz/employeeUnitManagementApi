@@ -28,8 +28,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    environment:
-      - ConnectionStrings__DefaultConnection=Host=db;Database=nome_do_banco;Username=seu_usuario;Password=sua_senha
     ports:
       - "5000:80"
     restart: always
