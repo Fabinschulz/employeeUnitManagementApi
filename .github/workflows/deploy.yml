@@ -72,4 +72,3 @@ jobs:
         with:
           app-name: ${{ env.WEB_APP }}
           images: ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_IMAGE }}:latest
-          slot-name: staging
